@@ -55,6 +55,7 @@ namespace serverSound
                 }
                 catch (Exception ex)
                 {
+                    Stop_Click(sender, e);
                     MessageBox.Show(ex.ToString() + "\n" + ex.Message);
                 }
             }
