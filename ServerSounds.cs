@@ -23,7 +23,7 @@ namespace serverSound
             {
                 client.SendTo(e.Buffer, clientIPAndPort);
             }
-            catch (ObjectDisposedException ex)
+            catch (ObjectDisposedException)
             {
                 //MessageBox.Show(ex.ToString() + "\n" + ex.Message);
             }
@@ -55,6 +55,7 @@ namespace serverSound
                 }
                 catch (Exception ex)
                 {
+                    Stop_Click(sender, e);
                     MessageBox.Show(ex.ToString() + "\n" + ex.Message);
                 }
             }
