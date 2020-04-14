@@ -23,9 +23,17 @@ namespace serverSound
             {
                 client.SendTo(e.Buffer, clientIPAndPort);
             }
+            catch (ObjectDisposedException ex)
+            {
+                //MessageBox.Show(ex.ToString() + "\n" + ex.Message);
+            }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.ToString() + "\n" + ex.Message);
+            }
+            finally
+            {
+                play = false;
             }
         }
         private void Start_Click(object sender, EventArgs e)
@@ -33,14 +41,22 @@ namespace serverSound
             if (!play)
             {
                 port = (int)portNUD.Value;
-                clientIPAndPort = new IPEndPoint(IPAddress.Parse(ipAddres.Text), port);
-                micSound = new WaveIn();
-                micSound.BufferMilliseconds = 50;
-                micSound.WaveFormat = new WaveFormat(36000, 32, 2);
-                micSound.DataAvailable += StartSend;
-                client = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
-                micSound.StartRecording();
-                play = true;
+                try
+                {
+                    clientIPAndPort = new IPEndPoint(IPAddress.Parse(ipAddres.Text), port);
+
+                    micSound = new WaveIn();
+                    micSound.BufferMilliseconds = 150;
+                    micSound.WaveFormat = new WaveFormat(44000, 32, 2);
+                    micSound.DataAvailable += StartSend;
+                    client = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
+                    micSound.StartRecording();
+                    play = true;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString() + "\n" + ex.Message);
+                }
             }
         }
 
