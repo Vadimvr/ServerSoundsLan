@@ -37,10 +37,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.portNUD)).BeginInit();
             this.SuspendLayout();
             // 
-            // textBox1
+            // ipAddres
             // 
             this.ipAddres.Location = new System.Drawing.Point(132, 11);
-            this.ipAddres.Name = "textBox1";
+            this.ipAddres.Name = "ipAddres";
             this.ipAddres.Size = new System.Drawing.Size(100, 20);
             this.ipAddres.TabIndex = 1;
             this.ipAddres.Text = "192.168.100.10";
@@ -100,7 +100,7 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "Port";
             // 
-            // Form1
+            // ServerSounds
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -113,8 +113,8 @@
             this.Controls.Add(this.ipAddres);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "ServerSounds";
+            this.Text = "Server Sounds";
             ((System.ComponentModel.ISupportInitialize)(this.portNUD)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
